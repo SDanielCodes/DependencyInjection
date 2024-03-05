@@ -1,23 +1,30 @@
-﻿namespace Services
-{
-  public class CitiesService
-  {
-    private List<string> _cities;
+﻿using ServiceContracts;
 
-    public CitiesService()
+namespace Services
+{
+    public class CitiesService : ICitiesService
     {
-      _cities = new List<string>() { 
+        private List<string> _cities;
+
+        public CitiesService()
+        {
+            _cities = new List<string>() {
         "London",
         "Paris",
         "New York",
         "Tokyo",
         "Rome"
-      };
-    }
+            };
+        }
 
-    public List<string> GetCities()
-    {
-      return _cities;
+        public List<string> GetCities()
+        {
+            return _cities;
+        }
+
+        public List<string> GetCountries()
+        {
+            throw new NotImplementedException();
+        }
     }
-  }
 }
