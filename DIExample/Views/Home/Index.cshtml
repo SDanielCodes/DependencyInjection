@@ -1,9 +1,21 @@
 ﻿@model IEnumerable<string>
 
 @{
- ViewBag.Title = "Home";
+    ViewBag.Title = "Home";
 }
 
+
+@inject ICitiesService _citiesServiceVarible
+
+@{
+    List<string> Cities = _citiesServiceVarible.GetCities();
+    foreach (string city in Cities)
+    {
+        <ul class="list box container">
+        <li>@city</li>
+        </ul>
+    }
+}
 <h1>Cities</h1>
 <ul class="list">
  @foreach (string city in Model)
@@ -11,3 +23,11 @@
   <li>@city</li>
  }
 </ul>
+
+<div>
+    <ul class="list box container" >
+        <li>@ViewBag.GUIDInstanceID1</li>
+        <li>@ViewBag.GUIDInstanceID2</li>
+        <li>@ViewBag.GUIDInstanceID3</li>
+    </ul>
+</div>
